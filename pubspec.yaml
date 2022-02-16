@@ -28,7 +28,6 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   flutter_bloc: ^8.0.1
-  rxdart: ^0.27.3
   freezed: ^1.1.1
   json_serializable: ^6.1.4
   flutter_svg: ^1.0.3
