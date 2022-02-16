@@ -1,3 +1,7 @@
+
+https://user-images.githubusercontent.com/18424657/154298834-c2c684e9-b11d-47e2-963d-0b4803267a67.mp4
+
+
 # About the project
 
 A simple app for challenging myself 👍. This project has 2 screens. One is home screen which is showing
