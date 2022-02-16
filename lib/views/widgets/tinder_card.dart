@@ -6,10 +6,16 @@ import 'package:tinder_clone/utils/dimensions.dart';
 import 'package:tinder_clone/utils/fonts.dart';
 
 class TinderCard extends StatelessWidget {
-  const TinderCard({Key? key, required this.imageUrl, required this.firstName})
+  const TinderCard(
+      {Key? key,
+      required this.imageUrl,
+      required this.firstName,
+      this.textSize})
       : super(key: key);
+
   final String imageUrl;
   final String firstName;
+  final double? textSize;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +50,7 @@ class TinderCard extends StatelessWidget {
                     Text(
                       firstName,
                       style: TextStyle(
-                        fontSize: AppFont.fontSizeLarge,
+                        fontSize: textSize ?? AppFont.fontSizeLarge,
                         color: AppColor.textColor,
                       ),
                     ),
@@ -52,7 +58,10 @@ class TinderCard extends StatelessWidget {
                     //Age will be pick randomly between 15 to 30
                     Text(
                       (Random().nextInt(15) + 15).toString(),
-                      style: TextStyle(fontSize: AppFont.fontSizeLarge,color: AppColor.textColor,),
+                      style: TextStyle(
+                        fontSize: textSize ?? AppFont.fontSizeLarge,
+                        color: AppColor.textColor,
+                      ),
                     )
                   ],
                 ),
@@ -65,14 +74,16 @@ class TinderCard extends StatelessWidget {
                         shape: BoxShape.circle,
                         color: AppColor.appLikeColor,
                       ),
-                      width: 12.sz,
-                      height: 12.sz,
+                      width: textSize!=null ? 6.sz : 12.sz,
+                      height: textSize!=null ? 6.sz : 12.sz,
                     ),
                     SizedBox(width: AppDimen.defaultMargin / 2),
                     Text(
                       "Recently Active",
                       style: TextStyle(
-                        fontSize: AppFont.fontSizeMedium,
+                        fontSize: textSize != null
+                            ? textSize! / 1.5
+                            : AppFont.fontSizeMedium,
                         color: AppColor.textColor,
                       ),
                     )
