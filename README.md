@@ -15,5 +15,5 @@ Feel free to leave a comment. It will help me develop myself 😄 😄 😄
 # How to run
  
     1. Clone the project
-    2. Run ```flutter pub get```
+    2. Run `flutter pub get`
     3. Sit back and enjoy my project.
