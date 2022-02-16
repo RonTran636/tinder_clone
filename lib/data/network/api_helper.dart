@@ -1,5 +1,4 @@
 import 'package:retry/retry.dart';
-import 'package:tinder_clone/data/model/base/base_response.dart';
 import 'package:tinder_clone/data/model/user/user.dart';
 
 import 'api.dart';
@@ -37,11 +36,10 @@ class ApiHelper{
     return response;
   }
 
-  Future<BaseResponse<List<User>>> getListUser() async{
+  Future<List<User>> getListUser() async{
     final fn = _client!.getListUser(appId);
     final response = await apiRequest(fn);
-    print("response: ${response}");
-    return response;
+    return response.data!;
   }
 }
 
