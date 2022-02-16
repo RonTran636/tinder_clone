@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+User _$UserFromJson(Map<String, dynamic> json) {
+  return _User.fromJson(json);
+}
+
 /// @nodoc
 class _$UserTearOff {
   const _$UserTearOff();
@@ -23,7 +27,7 @@ class _$UserTearOff {
       required String title,
       required String firstName,
       required String lastName,
-      required String gender,
+      String? gender,
       String? email,
       String? dateOfBirth,
       String? phone,
@@ -40,6 +44,10 @@ class _$UserTearOff {
       picture: picture,
     );
   }
+
+  User fromJson(Map<String, Object?> json) {
+    return User.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -51,12 +59,13 @@ mixin _$User {
   String get title => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
-  String get gender => throw _privateConstructorUsedError;
+  String? get gender => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get dateOfBirth => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String get picture => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
@@ -70,7 +79,7 @@ abstract class $UserCopyWith<$Res> {
       String title,
       String firstName,
       String lastName,
-      String gender,
+      String? gender,
       String? email,
       String? dateOfBirth,
       String? phone,
@@ -117,7 +126,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -148,7 +157,7 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       String title,
       String firstName,
       String lastName,
-      String gender,
+      String? gender,
       String? email,
       String? dateOfBirth,
       String? phone,
@@ -196,7 +205,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -218,18 +227,20 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_User with DiagnosticableTreeMixin implements _User {
   const _$_User(
       {required this.id,
       required this.title,
       required this.firstName,
       required this.lastName,
-      required this.gender,
+      this.gender,
       this.email,
       this.dateOfBirth,
       this.phone,
       required this.picture});
+
+  factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
   final String id;
@@ -240,7 +251,7 @@ class _$_User with DiagnosticableTreeMixin implements _User {
   @override
   final String lastName;
   @override
-  final String gender;
+  final String? gender;
   @override
   final String? email;
   @override
@@ -305,6 +316,11 @@ class _$_User with DiagnosticableTreeMixin implements _User {
   @override
   _$UserCopyWith<_User> get copyWith =>
       __$UserCopyWithImpl<_User>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_UserToJson(this);
+  }
 }
 
 abstract class _User implements User {
@@ -313,11 +329,13 @@ abstract class _User implements User {
       required String title,
       required String firstName,
       required String lastName,
-      required String gender,
+      String? gender,
       String? email,
       String? dateOfBirth,
       String? phone,
       required String picture}) = _$_User;
+
+  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
   String get id;
@@ -328,7 +346,7 @@ abstract class _User implements User {
   @override
   String get lastName;
   @override
-  String get gender;
+  String? get gender;
   @override
   String? get email;
   @override
