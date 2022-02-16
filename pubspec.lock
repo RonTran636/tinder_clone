@@ -148,6 +148,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
+  color:
+    dependency: transitive
+    description:
+      name: color
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
   convert:
     dependency: transitive
     description:
@@ -176,6 +183,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.1"
+  dartx:
+    dependency: transitive
+    description:
+      name: dartx
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  dio:
+    dependency: transitive
+    description:
+      name: dio
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.4"
   fake_async:
     dependency: transitive
     description:
@@ -202,6 +223,27 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_gen:
+    dependency: "direct main"
+    description:
+      name: flutter_gen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.5"
+  flutter_gen_core:
+    dependency: transitive
+    description:
+      name: flutter_gen_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.5"
+  flutter_gen_runner:
+    dependency: "direct dev"
+    description:
+      name: flutter_gen_runner
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.5"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -333,6 +375,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  multiscreen:
+    dependency: "direct main"
+    description:
+      name: multiscreen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1"
   package_config:
     dependency: transitive
     description:
@@ -389,6 +438,34 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  quiver:
+    dependency: transitive
+    description:
+      name: quiver
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1+1"
+  retrofit:
+    dependency: "direct main"
+    description:
+      name: retrofit
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1+1"
+  retrofit_generator:
+    dependency: "direct dev"
+    description:
+      name: retrofit_generator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.1"
+  retry:
+    dependency: "direct main"
+    description:
+      name: retry
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.0"
   shelf:
     dependency: transitive
     description:
@@ -471,6 +548,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.3"
+  time:
+    dependency: transitive
+    description:
+      name: time
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   timing:
     dependency: transitive
     description:
@@ -478,6 +562,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  tuple:
+    dependency: transitive
+    description:
+      name: tuple
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   typed_data:
     dependency: transitive
     description:
