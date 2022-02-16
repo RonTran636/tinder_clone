@@ -1,16 +1,17 @@
-# tinder_clone
+# About the project
 
-A branch new Tinder clone
+A simple app for challenging myself. Tinder clone has 2 screens. One is home screen which is showing
+list of potential dating candidates. The second screen is showing list of user you have passed (or 
+liked, depending on which button you tap on the 1st screen)
 
-## Getting Started
+For the best result, I'm trying to use the same library and design pattern I'm using for production project I have built.
+I've used BloC design pattern, freezed for model to support BloC's much more readable, flutter_svg 
+for displaying svg files.
 
-This project is a starting point for a Flutter application.
+Nothing too fancy, just something you might want to take a look if you want to be a Flutter developer :)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# How to run
+ 
+    1. Clone the project
+    2. Run ```flutter pub get```
+    3. Sit back and enjoy my project.
