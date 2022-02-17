@@ -37,6 +37,7 @@ class ListUserScreen extends StatelessWidget {
                 return TinderCard(
                   imageUrl: listUser[index].picture,
                   firstName: listUser[index].firstName,
+                  age: listUser[index].age!,
                   textSize: AppFont.fontSizeSmall,
                 );
               })

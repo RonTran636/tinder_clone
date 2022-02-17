@@ -39,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           (value) => TinderCard(
                             firstName: value.firstName,
                             imageUrl: value.picture,
+                            age: value.age,
                           ),
                         )
                         .toList(),
