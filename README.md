@@ -1,3 +1,7 @@
+
+https://user-images.githubusercontent.com/18424657/154298834-c2c684e9-b11d-47e2-963d-0b4803267a67.mp4
+
+
 # About the project
 
 A simple app for challenging myself 👍. This project has 2 screens. One is home screen which is showing
@@ -15,5 +19,5 @@ Feel free to leave a comment. It will help me develop myself 😄 😄 😄
 # How to run
  
     1. Clone the project
-    2. Run ```flutter pub get```
+    2. Run `flutter pub get`
     3. Sit back and enjoy my project.
