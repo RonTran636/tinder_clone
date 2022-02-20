@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
-import 'package:tinder_clone/bloc/card_provider/card_provider.dart';
 import 'package:tinder_clone/bloc/home/home_bloc.dart';
 import 'package:tinder_clone/views/screens/home_screen.dart';
 
@@ -27,16 +25,13 @@ class MyApp extends StatelessWidget {
             ),
         ),
       ],
-      child: ChangeNotifierProvider(
-        create: (context) => CardProvider(),
-        child: MaterialApp(
-          title: 'Flutter Demo',
-          scaffoldMessengerKey: snackBarKey,
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: const HomeScreen(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        scaffoldMessengerKey: snackBarKey,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
         ),
+        home: const HomeScreen(),
       ),
     );
   }

@@ -41,6 +41,12 @@ class _$HomeEventTearOff {
   HomeLikedList openLikedList() {
     return const HomeLikedList();
   }
+
+  HomeLoadCurrentUser loadCurrentUser(String userId) {
+    return HomeLoadCurrentUser(
+      userId,
+    );
+  }
 }
 
 /// @nodoc
@@ -55,6 +61,7 @@ mixin _$HomeEvent {
     required TResult Function(User user) likeUser,
     required TResult Function() openPassedList,
     required TResult Function() openLikedList,
+    required TResult Function(String userId) loadCurrentUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +71,7 @@ mixin _$HomeEvent {
     TResult Function(User user)? likeUser,
     TResult Function()? openPassedList,
     TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,6 +81,7 @@ mixin _$HomeEvent {
     TResult Function(User user)? likeUser,
     TResult Function()? openPassedList,
     TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -83,6 +92,7 @@ mixin _$HomeEvent {
     required TResult Function(HomeLikeUser value) likeUser,
     required TResult Function(HomePassedList value) openPassedList,
     required TResult Function(HomeLikedList value) openLikedList,
+    required TResult Function(HomeLoadCurrentUser value) loadCurrentUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,6 +102,7 @@ mixin _$HomeEvent {
     TResult Function(HomeLikeUser value)? likeUser,
     TResult Function(HomePassedList value)? openPassedList,
     TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -101,6 +112,7 @@ mixin _$HomeEvent {
     TResult Function(HomeLikeUser value)? likeUser,
     TResult Function(HomePassedList value)? openPassedList,
     TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -167,6 +179,7 @@ class _$HomeLoadInitialList implements HomeLoadInitialList {
     required TResult Function(User user) likeUser,
     required TResult Function() openPassedList,
     required TResult Function() openLikedList,
+    required TResult Function(String userId) loadCurrentUser,
   }) {
     return loadInitialList();
   }
@@ -179,6 +192,7 @@ class _$HomeLoadInitialList implements HomeLoadInitialList {
     TResult Function(User user)? likeUser,
     TResult Function()? openPassedList,
     TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
   }) {
     return loadInitialList?.call();
   }
@@ -191,6 +205,7 @@ class _$HomeLoadInitialList implements HomeLoadInitialList {
     TResult Function(User user)? likeUser,
     TResult Function()? openPassedList,
     TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
     required TResult orElse(),
   }) {
     if (loadInitialList != null) {
@@ -207,6 +222,7 @@ class _$HomeLoadInitialList implements HomeLoadInitialList {
     required TResult Function(HomeLikeUser value) likeUser,
     required TResult Function(HomePassedList value) openPassedList,
     required TResult Function(HomeLikedList value) openLikedList,
+    required TResult Function(HomeLoadCurrentUser value) loadCurrentUser,
   }) {
     return loadInitialList(this);
   }
@@ -219,6 +235,7 @@ class _$HomeLoadInitialList implements HomeLoadInitialList {
     TResult Function(HomeLikeUser value)? likeUser,
     TResult Function(HomePassedList value)? openPassedList,
     TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
   }) {
     return loadInitialList?.call(this);
   }
@@ -231,6 +248,7 @@ class _$HomeLoadInitialList implements HomeLoadInitialList {
     TResult Function(HomeLikeUser value)? likeUser,
     TResult Function(HomePassedList value)? openPassedList,
     TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
     required TResult orElse(),
   }) {
     if (loadInitialList != null) {
@@ -322,6 +340,7 @@ class _$HomePassUser implements HomePassUser {
     required TResult Function(User user) likeUser,
     required TResult Function() openPassedList,
     required TResult Function() openLikedList,
+    required TResult Function(String userId) loadCurrentUser,
   }) {
     return passUser(user);
   }
@@ -334,6 +353,7 @@ class _$HomePassUser implements HomePassUser {
     TResult Function(User user)? likeUser,
     TResult Function()? openPassedList,
     TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
   }) {
     return passUser?.call(user);
   }
@@ -346,6 +366,7 @@ class _$HomePassUser implements HomePassUser {
     TResult Function(User user)? likeUser,
     TResult Function()? openPassedList,
     TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
     required TResult orElse(),
   }) {
     if (passUser != null) {
@@ -362,6 +383,7 @@ class _$HomePassUser implements HomePassUser {
     required TResult Function(HomeLikeUser value) likeUser,
     required TResult Function(HomePassedList value) openPassedList,
     required TResult Function(HomeLikedList value) openLikedList,
+    required TResult Function(HomeLoadCurrentUser value) loadCurrentUser,
   }) {
     return passUser(this);
   }
@@ -374,6 +396,7 @@ class _$HomePassUser implements HomePassUser {
     TResult Function(HomeLikeUser value)? likeUser,
     TResult Function(HomePassedList value)? openPassedList,
     TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
   }) {
     return passUser?.call(this);
   }
@@ -386,6 +409,7 @@ class _$HomePassUser implements HomePassUser {
     TResult Function(HomeLikeUser value)? likeUser,
     TResult Function(HomePassedList value)? openPassedList,
     TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
     required TResult orElse(),
   }) {
     if (passUser != null) {
@@ -482,6 +506,7 @@ class _$HomeLikeUser implements HomeLikeUser {
     required TResult Function(User user) likeUser,
     required TResult Function() openPassedList,
     required TResult Function() openLikedList,
+    required TResult Function(String userId) loadCurrentUser,
   }) {
     return likeUser(user);
   }
@@ -494,6 +519,7 @@ class _$HomeLikeUser implements HomeLikeUser {
     TResult Function(User user)? likeUser,
     TResult Function()? openPassedList,
     TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
   }) {
     return likeUser?.call(user);
   }
@@ -506,6 +532,7 @@ class _$HomeLikeUser implements HomeLikeUser {
     TResult Function(User user)? likeUser,
     TResult Function()? openPassedList,
     TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
     required TResult orElse(),
   }) {
     if (likeUser != null) {
@@ -522,6 +549,7 @@ class _$HomeLikeUser implements HomeLikeUser {
     required TResult Function(HomeLikeUser value) likeUser,
     required TResult Function(HomePassedList value) openPassedList,
     required TResult Function(HomeLikedList value) openLikedList,
+    required TResult Function(HomeLoadCurrentUser value) loadCurrentUser,
   }) {
     return likeUser(this);
   }
@@ -534,6 +562,7 @@ class _$HomeLikeUser implements HomeLikeUser {
     TResult Function(HomeLikeUser value)? likeUser,
     TResult Function(HomePassedList value)? openPassedList,
     TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
   }) {
     return likeUser?.call(this);
   }
@@ -546,6 +575,7 @@ class _$HomeLikeUser implements HomeLikeUser {
     TResult Function(HomeLikeUser value)? likeUser,
     TResult Function(HomePassedList value)? openPassedList,
     TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
     required TResult orElse(),
   }) {
     if (likeUser != null) {
@@ -609,6 +639,7 @@ class _$HomePassedList implements HomePassedList {
     required TResult Function(User user) likeUser,
     required TResult Function() openPassedList,
     required TResult Function() openLikedList,
+    required TResult Function(String userId) loadCurrentUser,
   }) {
     return openPassedList();
   }
@@ -621,6 +652,7 @@ class _$HomePassedList implements HomePassedList {
     TResult Function(User user)? likeUser,
     TResult Function()? openPassedList,
     TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
   }) {
     return openPassedList?.call();
   }
@@ -633,6 +665,7 @@ class _$HomePassedList implements HomePassedList {
     TResult Function(User user)? likeUser,
     TResult Function()? openPassedList,
     TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
     required TResult orElse(),
   }) {
     if (openPassedList != null) {
@@ -649,6 +682,7 @@ class _$HomePassedList implements HomePassedList {
     required TResult Function(HomeLikeUser value) likeUser,
     required TResult Function(HomePassedList value) openPassedList,
     required TResult Function(HomeLikedList value) openLikedList,
+    required TResult Function(HomeLoadCurrentUser value) loadCurrentUser,
   }) {
     return openPassedList(this);
   }
@@ -661,6 +695,7 @@ class _$HomePassedList implements HomePassedList {
     TResult Function(HomeLikeUser value)? likeUser,
     TResult Function(HomePassedList value)? openPassedList,
     TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
   }) {
     return openPassedList?.call(this);
   }
@@ -673,6 +708,7 @@ class _$HomePassedList implements HomePassedList {
     TResult Function(HomeLikeUser value)? likeUser,
     TResult Function(HomePassedList value)? openPassedList,
     TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
     required TResult orElse(),
   }) {
     if (openPassedList != null) {
@@ -731,6 +767,7 @@ class _$HomeLikedList implements HomeLikedList {
     required TResult Function(User user) likeUser,
     required TResult Function() openPassedList,
     required TResult Function() openLikedList,
+    required TResult Function(String userId) loadCurrentUser,
   }) {
     return openLikedList();
   }
@@ -743,6 +780,7 @@ class _$HomeLikedList implements HomeLikedList {
     TResult Function(User user)? likeUser,
     TResult Function()? openPassedList,
     TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
   }) {
     return openLikedList?.call();
   }
@@ -755,6 +793,7 @@ class _$HomeLikedList implements HomeLikedList {
     TResult Function(User user)? likeUser,
     TResult Function()? openPassedList,
     TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
     required TResult orElse(),
   }) {
     if (openLikedList != null) {
@@ -771,6 +810,7 @@ class _$HomeLikedList implements HomeLikedList {
     required TResult Function(HomeLikeUser value) likeUser,
     required TResult Function(HomePassedList value) openPassedList,
     required TResult Function(HomeLikedList value) openLikedList,
+    required TResult Function(HomeLoadCurrentUser value) loadCurrentUser,
   }) {
     return openLikedList(this);
   }
@@ -783,6 +823,7 @@ class _$HomeLikedList implements HomeLikedList {
     TResult Function(HomeLikeUser value)? likeUser,
     TResult Function(HomePassedList value)? openPassedList,
     TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
   }) {
     return openLikedList?.call(this);
   }
@@ -795,6 +836,7 @@ class _$HomeLikedList implements HomeLikedList {
     TResult Function(HomeLikeUser value)? likeUser,
     TResult Function(HomePassedList value)? openPassedList,
     TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
     required TResult orElse(),
   }) {
     if (openLikedList != null) {
@@ -806,6 +848,164 @@ class _$HomeLikedList implements HomeLikedList {
 
 abstract class HomeLikedList implements HomeEvent {
   const factory HomeLikedList() = _$HomeLikedList;
+}
+
+/// @nodoc
+abstract class $HomeLoadCurrentUserCopyWith<$Res> {
+  factory $HomeLoadCurrentUserCopyWith(
+          HomeLoadCurrentUser value, $Res Function(HomeLoadCurrentUser) then) =
+      _$HomeLoadCurrentUserCopyWithImpl<$Res>;
+  $Res call({String userId});
+}
+
+/// @nodoc
+class _$HomeLoadCurrentUserCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements $HomeLoadCurrentUserCopyWith<$Res> {
+  _$HomeLoadCurrentUserCopyWithImpl(
+      HomeLoadCurrentUser _value, $Res Function(HomeLoadCurrentUser) _then)
+      : super(_value, (v) => _then(v as HomeLoadCurrentUser));
+
+  @override
+  HomeLoadCurrentUser get _value => super._value as HomeLoadCurrentUser;
+
+  @override
+  $Res call({
+    Object? userId = freezed,
+  }) {
+    return _then(HomeLoadCurrentUser(
+      userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HomeLoadCurrentUser implements HomeLoadCurrentUser {
+  const _$HomeLoadCurrentUser(this.userId);
+
+  @override
+  final String userId;
+
+  @override
+  String toString() {
+    return 'HomeEvent.loadCurrentUser(userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is HomeLoadCurrentUser &&
+            const DeepCollectionEquality().equals(other.userId, userId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(userId));
+
+  @JsonKey(ignore: true)
+  @override
+  $HomeLoadCurrentUserCopyWith<HomeLoadCurrentUser> get copyWith =>
+      _$HomeLoadCurrentUserCopyWithImpl<HomeLoadCurrentUser>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadInitialList,
+    required TResult Function(User user) passUser,
+    required TResult Function(User user) likeUser,
+    required TResult Function() openPassedList,
+    required TResult Function() openLikedList,
+    required TResult Function(String userId) loadCurrentUser,
+  }) {
+    return loadCurrentUser(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loadInitialList,
+    TResult Function(User user)? passUser,
+    TResult Function(User user)? likeUser,
+    TResult Function()? openPassedList,
+    TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
+  }) {
+    return loadCurrentUser?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadInitialList,
+    TResult Function(User user)? passUser,
+    TResult Function(User user)? likeUser,
+    TResult Function()? openPassedList,
+    TResult Function()? openLikedList,
+    TResult Function(String userId)? loadCurrentUser,
+    required TResult orElse(),
+  }) {
+    if (loadCurrentUser != null) {
+      return loadCurrentUser(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HomeLoadInitialList value) loadInitialList,
+    required TResult Function(HomePassUser value) passUser,
+    required TResult Function(HomeLikeUser value) likeUser,
+    required TResult Function(HomePassedList value) openPassedList,
+    required TResult Function(HomeLikedList value) openLikedList,
+    required TResult Function(HomeLoadCurrentUser value) loadCurrentUser,
+  }) {
+    return loadCurrentUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(HomeLoadInitialList value)? loadInitialList,
+    TResult Function(HomePassUser value)? passUser,
+    TResult Function(HomeLikeUser value)? likeUser,
+    TResult Function(HomePassedList value)? openPassedList,
+    TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
+  }) {
+    return loadCurrentUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HomeLoadInitialList value)? loadInitialList,
+    TResult Function(HomePassUser value)? passUser,
+    TResult Function(HomeLikeUser value)? likeUser,
+    TResult Function(HomePassedList value)? openPassedList,
+    TResult Function(HomeLikedList value)? openLikedList,
+    TResult Function(HomeLoadCurrentUser value)? loadCurrentUser,
+    required TResult orElse(),
+  }) {
+    if (loadCurrentUser != null) {
+      return loadCurrentUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeLoadCurrentUser implements HomeEvent {
+  const factory HomeLoadCurrentUser(String userId) = _$HomeLoadCurrentUser;
+
+  String get userId;
+  @JsonKey(ignore: true)
+  $HomeLoadCurrentUserCopyWith<HomeLoadCurrentUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
