@@ -1,7 +1,6 @@
 
 
-
-https://user-images.githubusercontent.com/18424657/154852126-45d2d05e-f182-4dbd-af28-b1db6e9e0db1.mp4
+https://user-images.githubusercontent.com/18424657/154914076-8d320e02-94ba-4d50-a483-2d4a6cca3b7d.mov
 
 
 # About the project
