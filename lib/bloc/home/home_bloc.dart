@@ -26,42 +26,47 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(const HomeState.loading());
     await _apiHelper.getListUser().then((value) async {
       _listUser = value;
-      await _loadCurrentUser(_listUser[0].id)
+      await _loadCurrentUser(_listUser.first.id,0)
           .whenComplete(() => emit(HomeState.loaded(userList: _listUser)));
     });
   }
 
-  Future<void> _loadCurrentUser(String userId) async {
+  Future<void> _loadCurrentUser(String userId,int index) async {
     await _apiHelper.getCurrentUserDetail(userId).then((value) {
-      _listUser[0] = value;
+      print("new data: $value");
+      _listUser[index] = value;
     });
   }
 
   void _onLikeUser(HomeLikeUser event, Emitter<HomeState> emit) async {
-    emit(const HomeState.loading());
     //Add user to liked list
     likedListUser.add(event.user);
-    //Remove user from parent list
-    _listUser.remove(event.user);
+    final index = _listUser.indexOf(event.user);
+    if (index == _listUser.length) return;
     //Get data detail of the next user
-    await _loadCurrentUser(_listUser[0].id).whenComplete(
-      () => emit(
-        HomeState.loaded(userList: _listUser),
-      ),
+    await _loadCurrentUser(_listUser[index+1].id,index+1)
+        .whenComplete(
+      () {
+        print("current list: $_listUser");
+        emit(const HomeState.loading());
+        emit(HomeState.loaded(userList: _listUser));
+      },
     );
   }
 
   void _onPassUser(HomePassUser event, Emitter<HomeState> emit) async {
-    emit(const HomeState.loading());
     //Add user to passed list
     passedListUser.add(event.user);
-    //Remove user from parent list
-    _listUser.remove(event.user);
+    final index = _listUser.indexOf(event.user);
+    if (index == _listUser.length) return;
     //Get data detail of the next user
-    await _loadCurrentUser(_listUser[0].id).whenComplete(
-      () => emit(
-        HomeState.loaded(userList: _listUser),
-      ),
+    await _loadCurrentUser(_listUser[index+1].id,index+1)
+        .whenComplete(
+          () {
+        print("current list: $_listUser");
+        emit(const HomeState.loading());
+        emit(HomeState.loaded(userList: _listUser));
+      },
     );
   }
 }

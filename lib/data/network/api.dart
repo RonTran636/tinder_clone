@@ -12,7 +12,7 @@ abstract class APIClient {
   @GET("/user")
   Future<BaseResponse<List<User>>> getListUser(@Header("app-id") String appId);
 
-  @GET("/user/60d0fe4f5311236168a109ca")
+  @GET("/user/{path}")
   Future<User> getUserDetail(
       @Header("app-id") String appId, @Path("path") String path);
 }

@@ -38,6 +38,7 @@ dependencies:
   provider: ^6.0.2
   jiffy: ^5.0.0
   swipe_cards: ^1.0.0
+  swipable_stack: ^1.2.0
   flutter:
     sdk: flutter
 

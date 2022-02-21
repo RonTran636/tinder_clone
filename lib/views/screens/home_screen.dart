@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:swipe_cards/swipe_cards.dart';
+import 'package:swipable_stack/swipable_stack.dart';
 import 'package:tinder_clone/bloc/home/home_bloc.dart';
 import 'package:tinder_clone/data/model/user/user.dart';
 import 'package:tinder_clone/utils/assets.gen.dart';
@@ -14,8 +15,6 @@ import 'package:tinder_clone/views/screens/list_user_screen.dart';
 import 'package:tinder_clone/views/widgets/rounded_button.dart';
 import 'package:tinder_clone/views/widgets/tinder_card.dart';
 
-import '../../main.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -24,7 +23,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late MatchEngine _matchEngine;
+  final _controller = SwipableStackController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,97 +36,64 @@ class _HomeScreenState extends State<HomeScreen> {
               child: CircularProgressIndicator(),
             ),
             loaded: (listUser) {
-              final _listCard = listUser
-                  .map(
-                    (user) => SwipeItem(
-                        content: user,
-                        likeAction: () {
-                          snackBarKey.currentState?.showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                "LIKED ${user.firstName.toUpperCase()}",
-                                style: TextStyle(
-                                  fontSize: AppFont.fontSizeSmall,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              duration: const Duration(milliseconds: 500),
-                            ),
-                          );
-                          Future.delayed(const Duration(milliseconds: 500), () {
-                            context
-                                .read<HomeBloc>()
-                                .add(HomeEvent.likeUser(user));
-                          });
-                        },
-                        nopeAction: () {
-                          snackBarKey.currentState?.showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                "PASSED ${user.firstName.toUpperCase()}",
-                                style: TextStyle(
-                                  fontSize: AppFont.fontSizeSmall,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              duration: const Duration(milliseconds: 500),
-                            ),
-                          );
-                          Future.delayed(const Duration(milliseconds: 500), () {
-                            context
-                                .read<HomeBloc>()
-                                .add(HomeEvent.passUser(user));
-                          });
-                        },
-                        superlikeAction: () {
-                          _matchEngine.currentItem?.like();
-                          snackBarKey.currentState?.showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                "SUPER LIKED ${user.firstName.toUpperCase()}",
-                                style: TextStyle(
-                                  fontSize: AppFont.fontSizeSmall,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              duration: const Duration(milliseconds: 500),
-                            ),
-                          );
-                          Future.delayed(const Duration(milliseconds: 500), () {
-                            context
-                                .read<HomeBloc>()
-                                .add(HomeEvent.likeUser(user));
-                          });
-                        }),
-                  )
-                  .toList();
-              _matchEngine = MatchEngine(swipeItems: _listCard);
               return Column(
                 children: [
                   SizedBox(height: AppDimen.defaultMargin),
                   Expanded(
-                    child: SwipeCards(
-                      itemBuilder: (_, index) => TinderCard(
-                        firstName: _listCard[index].content.firstName,
-                        imageUrl: _listCard[index].content.picture,
-                        dateOfBirth: _listCard[index].content.dateOfBirth,
-                      ),
-                      onStackFinished: () =>
-                          snackBarKey.currentState?.showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            "End of list",
-                            style: TextStyle(
-                              fontSize: AppFont.fontSizeSmall,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          duration: const Duration(milliseconds: 500),
-                        ),
-                      ),
-                      matchEngine: _matchEngine,
-                      upSwipeAllowed: true,
-                      fillSpace: true,
+                    child: SwipableStack(
+                      detectableSwipeDirections: const {
+                        SwipeDirection.right,
+                        SwipeDirection.left,
+                        SwipeDirection.up
+                      },
+                      controller: _controller,
+                      stackClipBehaviour: Clip.none,
+                      horizontalSwipeThreshold: 0.8,
+                      verticalSwipeThreshold: 0.8,
+                      onSwipeCompleted: (index, direction) {
+                        switch (direction) {
+                          case SwipeDirection.left:
+                            Future.delayed(const Duration(milliseconds: 500),
+                                () {
+                              context
+                                  .read<HomeBloc>()
+                                  .add(HomeEvent.passUser(listUser[index]));
+                            });
+                            break;
+
+                          case SwipeDirection.right:
+                            Future.delayed(const Duration(milliseconds: 500),
+                                () {
+                              context
+                                  .read<HomeBloc>()
+                                  .add(HomeEvent.likeUser(listUser[index]));
+                            });
+                            break;
+
+                          case SwipeDirection.up:
+                            Future.delayed(const Duration(milliseconds: 500),
+                                () {
+                              context
+                                  .read<HomeBloc>()
+                                  .add(HomeEvent.likeUser(listUser[index]));
+                            });
+                            break;
+                        }
+                      },
+                      builder: (context, swipeProperty) {
+                        final itemIndex = swipeProperty.index % listUser.length;
+                        return Stack(
+                          children: listUser.reversed
+                              .map(
+                                (e) => TinderCard(
+                                  imageUrl: listUser[itemIndex].picture,
+                                  firstName: listUser[itemIndex].firstName,
+                                  dateOfBirth: listUser[itemIndex].dateOfBirth,
+                                ),
+                              )
+                              .toList(),
+                        );
+                      },
                     ),
                   ),
                   _actionButtons(listUser.reversed.toList()),
@@ -150,12 +116,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  @override
-  void initState() {
-    super.initState();
-    _matchEngine = MatchEngine();
-  }
-
   Widget _actionButtons(List<User> listUser) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -165,7 +125,12 @@ class _HomeScreenState extends State<HomeScreen> {
           color: AppColor.buttonBackground,
           iconColor: AppColor.appRedColor,
           onPressed: () {
-            _matchEngine.currentItem?.nope();
+            _controller.next(
+              swipeDirection: SwipeDirection.left,
+              duration: const Duration(
+                milliseconds: 500,
+              ),
+            );
           },
         ),
         SizedBox(width: AppDimen.defaultMargin / 2),
@@ -174,7 +139,12 @@ class _HomeScreenState extends State<HomeScreen> {
           color: AppColor.buttonBackground,
           iconColor: AppColor.appBlue,
           onPressed: () {
-            _matchEngine.currentItem?.superLike();
+            _controller.next(
+              swipeDirection: SwipeDirection.up,
+              duration: const Duration(
+                milliseconds: 500,
+              ),
+            );
           },
         ),
         SizedBox(width: AppDimen.defaultMargin / 2),
@@ -183,7 +153,12 @@ class _HomeScreenState extends State<HomeScreen> {
           color: AppColor.buttonBackground,
           iconColor: AppColor.appLikeColor,
           onPressed: () {
-            _matchEngine.currentItem?.like();
+            _controller.next(
+              swipeDirection: SwipeDirection.right,
+              duration: const Duration(
+                milliseconds: 500,
+              ),
+            );
           },
         ),
       ],
